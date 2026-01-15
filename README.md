@@ -130,7 +130,8 @@ GET /api/preview-url?url={encoded_url}
 1. [Vercel](https://vercel.com) hesabınıza giriş yapın
 2. "New Project" oluşturun
 3. GitHub repository'nizi bağlayın
-4. Deploy edin!
+4. Vercel otomatik olarak `api/` klasöründeki dosyaları serverless function olarak algılayacak
+5. Deploy edin!
 
 ### Environment Variables
 
@@ -139,6 +140,11 @@ Vercel dashboard'ında şu değişkenleri ayarlayın:
 ```
 BITLY_API_KEY=your_bitly_api_key
 ```
+
+### API Yapılandırması
+
+Vercel otomatik olarak şu endpoint'i oluşturur:
+- `GET /api/preview-url?url={encoded_url}` - URL önizleme API'si
 
 ## 🤝 Katkıda Bulunma
 
