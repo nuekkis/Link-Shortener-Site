@@ -65,21 +65,19 @@ const UrlForm: React.FC<UrlFormProps> = ({ longUrl, setLongUrl, shortener, setSh
         return
       }
 
+      // Production mode'da gerçek API çağrısı
       const response = await fetch(`/api/preview-url?url=${encodeURIComponent(url)}`)
       if (!response.ok) {
         throw new Error('URL önizlemesi alınamadı.')
       }
       const data = await response.json()
       setPreviewData(data)
-    } catch (err: any) {
-      console.error('URL önizlemesi hatası:', err)
-      setPreviewError(`URL önizlemesi alınırken bir hata oluştu: ${err.message || err.toString()}`)
-      toast.error(`URL önizlemesi alınırken bir hata oluştu: ${err.message || err.toString()}`)
-    } finally {
-      if (!import.meta.env.DEV) {
-        setPreviewLoading(false)
-      }
-    }
+  } catch (err: any) {
+    console.error('URL önizlemesi hatası:', err)
+    setPreviewError(`URL önizlemesi alınırken bir hata oluştu: ${err.message || err.toString()}`)
+    toast.error(`URL önizlemesi alınırken bir hata oluştu: ${err.message || err.toString()}`)
+    setPreviewLoading(false)
+  }
   }, [urlError])
 
   useEffect(() => {
