@@ -4,10 +4,9 @@ import toast from 'react-hot-toast'
 
 interface ShortenedUrlDisplayProps {
   shortUrl: string;
-  theme: string;
 }
 
-const ShortenedUrlDisplay: React.FC<ShortenedUrlDisplayProps> = ({ shortUrl, theme }) => {
+const ShortenedUrlDisplay: React.FC<ShortenedUrlDisplayProps> = ({ shortUrl }) => {
   const qrCodeRef = useRef<HTMLDivElement>(null)
 
   const handleCopy = () => {
@@ -42,17 +41,17 @@ const ShortenedUrlDisplay: React.FC<ShortenedUrlDisplayProps> = ({ shortUrl, the
   }
 
   return (
-    <div className="mt-6 p-4 bg-green-100 dark:bg-green-800 border border-green-400 dark:border-green-700 text-green-700 dark:text-green-200 rounded-lg flex flex-col sm:flex-row items-center justify-between shadow-sm transition-all duration-300 ease-in-out">
+    <div className="mt-6 p-4 bg-green-800 border border-green-600 text-green-200 rounded-lg flex flex-col sm:flex-row items-center justify-between shadow-sm transition-all duration-300 ease-in-out">
       <div className="flex flex-col items-center sm:flex-row sm:items-center w-full sm:w-auto">
         <span className="break-all text-sm font-medium mb-2 sm:mb-0 sm:mr-4">
           Kısaltılmış URL:
-          <a href={shortUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline ml-2 font-semibold">
+          <a href={shortUrl} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline ml-2 font-semibold">
             {shortUrl}
           </a>
         </span>
         <div className="mt-2 sm:mt-0">
-          <div ref={qrCodeRef} className="p-2 bg-white dark:bg-gray-700 rounded-lg shadow-md">
-            <QRCodeSVG value={shortUrl} size={100} level="H" bgColor={theme === 'dark' ? '#4B5563' : '#FFFFFF'} fgColor={theme === 'dark' ? '#E5E7EB' : '#000000'} />
+          <div ref={qrCodeRef} className="p-2 bg-gray-700 rounded-lg shadow-md">
+            <QRCodeSVG value={shortUrl} size={100} level="H" bgColor="#374151" fgColor="#E5E7EB" />
           </div>
           <button
             onClick={handleDownloadQrCode}

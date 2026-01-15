@@ -36,7 +36,7 @@ export default async function (request: VercelRequest, response: VercelResponse)
       previewData.title = $('title').text()
     }
     if (!previewData.description) {
-      previewData.description = $('meta[name="description"]').attr('content')')
+      previewData.description = $('meta[name="description"]').attr('content')
     }
 
     response.status(200).json(previewData)

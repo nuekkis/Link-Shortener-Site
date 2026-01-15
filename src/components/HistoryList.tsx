@@ -13,16 +13,16 @@ const HistoryList: React.FC<HistoryListProps> = ({ history, setHistory }) => {
   }
 
   return (
-    <div className="mt-8 p-6 bg-gray-50 dark:bg-gray-700 rounded-xl shadow-inner">
-      <h2 className="text-xl font-bold mb-4 text-gray-800 dark:text-white text-center">Kısaltma Geçmişi</h2>
+    <div className="mt-8 p-6 bg-gray-700 rounded-xl shadow-inner">
+      <h2 className="text-xl font-bold mb-4 text-white text-center">Kısaltma Geçmişi</h2>
       <ul className="space-y-3 max-h-60 overflow-y-auto pr-2">
         {history.map((item, index) => (
-          <li key={index} className="bg-white dark:bg-gray-800 p-3 rounded-lg shadow-sm border border-gray-200 dark:border-gray-600 flex flex-col sm:flex-row justify-between items-start sm:items-center text-sm">
+          <li key={index} className="bg-gray-800 p-3 rounded-lg shadow-sm border border-gray-600 flex flex-col sm:flex-row justify-between items-start sm:items-center text-sm">
             <div className="flex-1 mb-2 sm:mb-0">
-              <p className="text-gray-600 dark:text-gray-300">Uzun: <a href={item.long} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline break-all">{item.long}</a></p>
-              <p className="text-gray-800 dark:text-gray-100 font-medium">Kısa: <a href={item.short} target="_blank" rel="noopener noreferrer" className="text-indigo-600 hover:underline break-all">{item.short}</a></p>
+              <p className="text-gray-400">Uzun: <a href={item.long} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline break-all">{item.long}</a></p>
+              <p className="text-gray-100 font-medium">Kısa: <a href={item.short} target="_blank" rel="noopener noreferrer" className="text-indigo-400 hover:underline break-all">{item.short}</a></p>
             </div>
-            <span className="text-gray-500 dark:text-gray-400 text-xs mt-2 sm:mt-0">{new Date(item.date).toLocaleDateString()}</span>
+            <span className="text-gray-400 text-xs mt-2 sm:mt-0">{new Date(item.date).toLocaleDateString()}</span>
           </li>
         ))}
       </ul>
