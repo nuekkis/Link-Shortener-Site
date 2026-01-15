@@ -97,13 +97,12 @@ src/
 ├── components/
 │   ├── UrlForm.tsx          # Ana URL giriş formu
 │   ├── ShortenedUrlDisplay.tsx # Kısa URL gösterimi
-│   ├── HistoryList.tsx      # Geçmiş listesi
-│   └── ThemeToggle.tsx      # Tema değiştirme (kaldırıldı)
-├── api/
-│   └── preview-url.ts       # URL önizleme API (Vercel)
+│   └── HistoryList.tsx      # Geçmiş listesi
 ├── App.tsx                  # Ana uygulama komponenti
 ├── main.tsx                 # Uygulama giriş noktası
 └── index.css               # Global stiller
+api/
+└── preview-url.ts           # URL önizleme API (Vercel)
 ```
 
 ## 🌐 API Endpoints
