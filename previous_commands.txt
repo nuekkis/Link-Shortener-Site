@@ -1,0 +1,33 @@
+npm create vite@latest . --template react-ts
+# --- Ayraç ---
+move link-shortening-site/* .
+# --- Ayraç ---
+rmdir link-shortening-site
+# --- Ayraç ---
+npm create vite@latest link-shortening-site --template react-ts
+# --- Ayraç ---
+Move-Item -Path link-shortening-site\* -Destination . -Force
+# --- Ayraç ---
+Remove-Item -Path link-shortening-site -Recurse -Force
+# --- Ayraç ---
+del /Q *
+# --- Ayraç ---
+Get-ChildItem -Path . -Force | Where-Object {$_.Name -ne "." -and $_.Name -ne ".." -and $_.Name -ne "link-shortening-site"} | Remove-Item -Recurse -Force
+# --- Ayraç ---
+cd C:\Users\Administrator\Desktop\Link Shortening Site
+# --- Ayraç ---
+npm install
+# --- Ayraç ---
+npm run tailwind-init
+# --- Ayraç ---
+npm install react-hot-toast qrcode.react
+# --- Ayraç ---
+npm install
+# --- Ayraç ---
+mkdir src/components
+# --- Ayraç ---
+mkdir src/api
+# --- Ayraç ---
+npm install @vercel/node cheerio node-fetch
+# --- Ayraç ---
+npm install
