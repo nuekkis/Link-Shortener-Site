@@ -153,12 +153,6 @@ BITLY_API_KEY=your_bitly_api_key
 
 Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
 
-## 👨‍💻 Geliştirici
-
-- **Ad**: [İsminiz]
-- **GitHub**: [GitHub Profiliniz]
-- **LinkedIn**: [LinkedIn Profiliniz]
-
 ## 🙏 Teşekkürler
 
 - [TinyURL](https://tinyurl.com/) - Ücretsiz URL kısaltma servisi
