@@ -56,12 +56,12 @@ const UrlForm: React.FC<UrlFormProps> = ({ longUrl, setLongUrl, shortener, setSh
         // Basit bir mock response
         setTimeout(() => {
           setPreviewData({
-            title: 'URL Önizlemesi (Development Mode)',
-            description: 'Bu özellik sadece production ortamında çalışır. Vercel deployment sonrası aktif olacaktır.',
+            title: `Önizleme: ${url.length > 50 ? url.substring(0, 50) + '...' : url}`,
+            description: 'Development modunda URL önizleme özelliği sınırlıdır. Production ortamında tam özellik çalışacaktır.',
             url: url
           })
           setPreviewLoading(false)
-        }, 1000)
+        }, 800)
         return
       }
 
@@ -74,8 +74,11 @@ const UrlForm: React.FC<UrlFormProps> = ({ longUrl, setLongUrl, shortener, setSh
       setPreviewData(data)
   } catch (err: any) {
     console.error('URL önizlemesi hatası:', err)
-    setPreviewError(`URL önizlemesi alınırken bir hata oluştu: ${err.message || err.toString()}`)
-    toast.error(`URL önizlemesi alınırken bir hata oluştu: ${err.message || err.toString()}`)
+    const errorMessage = 'URL önizlemesi alınırken bir hata oluştu.'
+    setPreviewError(errorMessage)
+    if (!import.meta.env.DEV) {
+      toast.error(errorMessage)
+    }
     setPreviewLoading(false)
   }
   }, [urlError])
@@ -87,13 +90,14 @@ const UrlForm: React.FC<UrlFormProps> = ({ longUrl, setLongUrl, shortener, setSh
       } else {
         setPreviewData(null)
         setPreviewError('')
+        setPreviewLoading(false)
       }
     }, 500) // 500ms gecikme
 
     return () => {
       clearTimeout(handler)
     }
-  }, [longUrl, urlError, fetchUrlPreview])
+  }, [longUrl, urlError])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
